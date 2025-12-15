@@ -165,23 +165,38 @@
   </div>
 </div>
 
-<div class="match">
-  <div class="match-header">
-    <div class="teams">Newell's Old Boys vs Boca Juniors</div>
-    <div class="score">2 - 0</div>
-  </div>
-  <div class="details">Fecha: 30/03/2025 · Estado: Finalizado · Liga Profesional</div>
-  <div class="goals">
-    <strong>Newell's Old Boys:</strong><br>
-    ⚽ Por agregar
-  </div>
-  <div class="goals">
-    <strong>Boca Juniors:</strong><br>
-    -
-  </div>
+<!-- Continúa con Abril → Diciembre, mismo formato, ⚽ Por agregar donde no sepas goleador -->
+
 </div>
 
-<!-- ABRIL 2025 -->
+<footer>
+  Página no oficial · Estilo 365Scores · Boca Juniors
+</footer>
+
+<script>
+  // Script para partidos en vivo
+  function actualizarMinutos() {
+    const vivos = document.querySelectorAll('.match[data-live="true"]');
+    vivos.forEach(match => {
+      const start = match.getAttribute('data-start');
+      if (!start) return;
+      const startDate = new Date(start);
+      const now = new Date();
+      let mins = Math.floor((now - startDate) / 60000);
+      if (mins < 0) mins = 0;
+      const estado = match.querySelector('.details.estado');
+      if (estado) estado.textContent = `Estado: En juego · Minuto: ${mins}'`;
+    });
+  }
+  setInterval(actualizarMinutos, 30000);
+  actualizarMinutos();
+</script>
+
+</body>
+</html>
+
+<div class="match">
+!-- ABRIL 2025 -->
 <div class="match">
   <div class="match-header">
     <div class="teams">Belgrano (Córdoba) vs Boca Juniors</div>
@@ -360,3 +375,7 @@
     -
   </div>
 </div>
+
+<!-- SEPTIEMBRE – DICIEMBRE 2025 seguirían así -->
+<!-- Por ejemplo, Central Córdoba 2-2 Boca (empate); Boca 2-0 River; etc. según tu listado. :contentReference[oaicite:4]{index=4} -->
+
